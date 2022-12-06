@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
+
+  setInterval(clicked, 1000)
+
+  const now = new Date().toLocaleTimeString();
+
+  const [time, setTime] = useState(now)
+
+  function clicked(){
+    const newTime = new Date().toLocaleTimeString()
+    setTime(newTime)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+     <h1 >{time}</h1>
+     <button onClick={clicked}>get time</button>
+
     </div>
-  );
+  )
 }
 
 export default App;
